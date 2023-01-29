@@ -1,0 +1,8 @@
+.element__place-and-like {
+  display: flex;
+  max-width: 246px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 79px;
+}

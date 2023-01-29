@@ -1,0 +1,8 @@
+.profile__info {
+  max-width: 336px;
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
