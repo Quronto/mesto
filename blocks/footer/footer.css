@@ -2,5 +2,11 @@
   max-width: calc(100% - 400px);
   margin: 0 auto;
   padding-bottom: 60px;
+}
 
+@media screen and (max-width: 950px) {
+  .footer {
+  padding-bottom: 36px;
+  max-width: calc(100% - 38px);
+  }
 }
