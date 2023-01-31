@@ -2,4 +2,11 @@
   background-image: url(../../../images/like.svg);
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.element__like:hover {
+  opacity: .5;
+  transition: linear  0.1s 0.1s;
 }

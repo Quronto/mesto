@@ -21,13 +21,13 @@
         <div class="profile__info">
           <div class="profile__container-link-and-name">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button"><img class="profile__edit-picture" src="./images/edit-profile.svg" alt="кнопка изменения профиля"
-                class="profile__picture"></button>
+            <button class="profile__edit-button button"><img class="profile__edit-picture"
+                src="./images/edit-profile.svg" alt="кнопка изменения профиля" class="profile__picture"></button>
           </div>
           <p class="profile__status">Исследователь океана</p>
         </div>
-        <button class="profile__add-button"><img class="profile__add-button-picture" src="./images/addButton.svg" alt="Кнопка добавления фото"
-            class="profile__add-picture"></button>
+        <button class="profile__add-button button"><img class="profile__add-button-picture" src="./images/addButton.svg"
+            alt="Кнопка добавления фото" class="profile__add-picture"></button>
       </section>
       <section class="elements">
         <article class="element">
@@ -79,5 +79,18 @@
     </footer>
   </div>
 </body>
+
+<section class="popup">
+  <div class="popup__container">
+    <button class="popup__close"><img src="./images/CloseIcon.svg" alt="Кнопка закрытия окна"
+        class="popup__close-image button"></button>
+    <h2 class="popup__header">Редактировать профиль</h2>
+    <input type="text" placeholder="Имя" class="popup__text popup__text_type_name">
+    <input required type="text" placeholder="Статус" class="popup__text popup__text_type_status">
+    <button class="popup__save">
+      <p class="popup__save-text">Сохранить</p>
+    </button>
+  </div>
+</section>
 
 </html>

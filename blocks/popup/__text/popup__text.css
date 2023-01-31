@@ -1,0 +1,10 @@
+.popup__text {
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #000;
+  border-color: rgba(0, 0, 0, .2);
+}
+
+.popup__text:last-of-type {
+  margin-bottom: 0;
+}
