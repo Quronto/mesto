@@ -1,17 +1,44 @@
 # Проект: Место
 
-### Обзор
+Тут представлен проект "Mesto". В нём можно делиться своими фото пейзажей, а также, понравившиеся фотки можно
+ отметить лайком. Я использовал несколько интересных технологий, вот некторые из них с примерами: 
+1. Тег @media мы использовали для реализации одинаковых свойств с разными значениями для разных разрешений экрана:
+``` css
+@media screen and (max-width: 320px) {
+  .elements {
+    grid-template-rows: repeat(auto-fit, 361px);
+  }
+}
+```
+2. Использовали calc() для упрощения адаптивной вёрстки:
+``` css
+max-width: calc(100% - 296px);
+```
+3. А также использовали grid для создании сетки:
+``` css
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(284px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(213px, 1fr));
+  gap: 16px;
+}
+  ```
 
-* Figma
-* Картинки
+  4. Также подключили и использовали JavaScript, для реализации попапа и его функций:
+  ``` js
+  const editButton = document.querySelector(".profile__edit-button_type_edit");
 
-**Figma**
+  const popup = document.querySelector(".popup");
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+  const closeButton = popup.querySelector(".popup__close");
 
-**Картинки**
 
-Доставать картинки предстоит из Фигмы. Это расхожая практика, поэтому полезно потренироваться.
-Не забудьте [оптимизировать картинки](https://tinypng.com/), чтобы ваш сайт загружался быстрее.
+  function toggleOpenClosePopup(){
+    popup.classList.toggle("popup_opened");
+  };
 
-Удачи!
+  editButton.addEventListener("click", toggleOpenClosePopup);
+  closeButton.addEventListener("click", toggleOpenClosePopup);
+  ```
+
+  Ссылка на проект: https://quronto.github.io/mesto/index.html
