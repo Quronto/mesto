@@ -3,6 +3,7 @@
   border: none;
   border-bottom: 1px solid #000;
   border-color: rgba(0, 0, 0, .2);
+  width: 100%;
 }
 
 .popup__text:last-of-type {

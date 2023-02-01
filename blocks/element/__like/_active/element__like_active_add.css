@@ -1,0 +1,6 @@
+.element__like_active_add {
+  background-image: url(../../../../images/likeBlack.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
