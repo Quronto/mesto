@@ -41,4 +41,4 @@ max-width: calc(100% - 296px);
   closeButton.addEventListener("click", toggleOpenClosePopup);
   ```
 
-  Ссылка на проект: https://quronto.github.io/mesto/index.html
+  Ссылка на проект: https://quronto.github.io/mesto/
