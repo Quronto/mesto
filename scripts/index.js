@@ -1,16 +1,18 @@
-const editButton = document.querySelector(".profile__edit-button_type_edit");
+const editButton = document.querySelector(".profile__edit-button");
 
 const popup = document.querySelector(".popup");
 
 const closeButton = popup.querySelector(".popup__close");
 
-
-function toggleOpenClosePopup(){
+function toggleOpenPopup(){
   popup.classList.toggle("popup_opened");
+  nameInput.value = `${profileName.textContent}`;
+  jobInput.value = `${profileStatus.textContent}`;
 };
 
-editButton.addEventListener("click", toggleOpenClosePopup);
-closeButton.addEventListener("click", toggleOpenClosePopup);
+function toggleClosePopup(){
+  popup.classList.toggle("popup_opened");
+};
 
 let formElement = popup.querySelector(".popup__form");
 
@@ -23,12 +25,15 @@ let profileStatus = document.querySelector(".profile__status");
 
 function handleFormSubmit (evt) {
     evt.preventDefault();
-    profileName.value = '';
-    profileStatus.value = '';
+    profileName.value = ``;
+    profileStatus.value = ``;
 
     profileName.textContent = `${nameInput.value}`;
     profileStatus.textContent = `${jobInput.value}`;
-    toggleOpenClosePopup();
+    toggleClosePopup();
 };
 
 formElement.addEventListener('submit', handleFormSubmit);
+
+editButton.addEventListener("click", toggleOpenPopup);
+closeButton.addEventListener("click", toggleClosePopup);

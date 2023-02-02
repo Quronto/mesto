@@ -4,6 +4,10 @@
   border-bottom: 1px solid #000;
   border-color: rgba(0, 0, 0, .2);
   width: 100%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
 }
 
 .popup__text:last-of-type {

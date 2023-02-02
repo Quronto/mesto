@@ -13,7 +13,6 @@
   <div class="page">
     <header class="header">
       <img src="./images/header-logo.svg" alt="лого Mesto" class="header__logo">
-      <div class="header__line"></div>
     </header>
     <main class="content">
       <section class="profile">
@@ -21,7 +20,7 @@
         <div class="profile__info">
           <div class="profile__container-link-and-name">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button profile__edit-button_type_edit button"><img
+            <button class="profile__edit-button button"><img
                 class="profile__edit-picture" src="./images/edit-profile.svg" alt="кнопка изменения профиля"></button>
           </div>
           <p class="profile__status">Исследователь океана</p>
@@ -34,42 +33,42 @@
           <img src="./images/SkalaDiva.jpg" alt="Картинка автора" class="element__image">
           <div class="element__place-and-like">
             <h2 class="element__place">Скала Дива</h2>
-            <img src="./images/like.svg" alt="Кнопка Нравится" class="element__like">
+            <button class="element__button-like"><img src="./images/like.svg" alt="Кнопка Нравится" class="element__like"></button>
           </div>
         </article>
         <article class="element">
           <img src="./images/baikal.jpg" alt="Картинка автора" class="element__image">
           <div class="element__place-and-like">
             <h2 class="element__place">Байкал</h2>
-            <img src="./images/like.svg" alt="Кнопка Нравится" class="element__like">
+            <button class="element__button-like"><img src="./images/like.svg" alt="Кнопка Нравится" class="element__like"></button>
           </div>
         </article>
         <article class="element">
           <img src="./images/CharskiePeski.jpg" alt="Картинка автора" class="element__image">
           <div class="element__place-and-like">
             <h2 class="element__place">Чарские пески</h2>
-            <img src="./images/like.svg" alt="Кнопка Нравится" class="element__like">
+            <button class="element__button-like"><img src="./images/like.svg" alt="Кнопка Нравится" class="element__like"></button>
           </div>
         </article>
         <article class="element">
           <img src="./images/BLug.jpg" alt="Картинка автора" class="element__image">
           <div class="element__place-and-like">
             <h2 class="element__place">Боголюбовский луг</h2>
-            <img src="./images/like.svg" alt="Кнопка Нравится" class="element__like">
+            <button class="element__button-like"><img src="./images/like.svg" alt="Кнопка Нравится" class="element__like"></button>
           </div>
         </article>
         <article class="element">
           <img src="./images/Viborg.jpg" alt="Картинка автора" class="element__image">
           <div class="element__place-and-like">
             <h2 class="element__place">Выборг</h2>
-            <img src="./images/like.svg" alt="Кнопка Нравится" class="element__like">
+            <button class="element__button-like"><img src="./images/like.svg" alt="Кнопка Нравится" class="element__like"></button>
           </div>
         </article>
         <article class="element">
           <img src="./images/kaliningrad.jpeg" alt="Картинка автора" class="element__image">
           <div class="element__place-and-like">
             <h2 class="element__place">Калининград</h2>
-            <img src="./images/like.svg" alt="Кнопка Нравится" class="element__like">
+            <button class="element__button-like"><img src="./images/like.svg" alt="Кнопка Нравится" class="element__like"></button>
           </div>
         </article>
       </section>
@@ -84,9 +83,9 @@
       <button class="popup__close"><img src="./images/CloseIcon.svg" alt="Кнопка закрытия окна"
           class="popup__close-image button"></button>
       <h2 class="popup__header">Редактировать профиль</h2>
-      <form class="popup__form">
-        <input required type="text" placeholder="Имя" class="popup__text popup__text_type_name">
-        <input required type="text" placeholder="О себе" class="popup__text popup__text_type_job">
+      <form class="popup__form" name="Имя и о себе">
+        <input required type="text" name="Имя" placeholder="Имя" class="popup__text popup__text_type_name">
+        <input required type="text" name="О себе" placeholder="О себе" class="popup__text popup__text_type_job">
         <button class="popup__save">
           Сохранить
         </button>
