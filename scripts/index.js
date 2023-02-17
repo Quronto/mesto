@@ -29,26 +29,25 @@ const editButton = document.querySelector(".profile__edit-button");
 
 const popup = document.querySelector(".popup");
 
-const popupPlaceAdd = document.querySelector(".popup_theme_place-add");
+const popupAddPlace = document.querySelector(".popup_theme_place-add");
 
 const closeButton = popup.querySelector(".popup__close");
 
 const addButton = document.querySelector(".profile__add-button");
 
-const closePlaceAddButton = document.querySelector(".popup__place-close");
+const buttonClosePopupCard = document.querySelector(".popup__place-close");
 
 const popupImage = document.querySelector('.popup__image');
 
 const templateImg = document.querySelector('.element__image');
 
 
-
 const toggleOpenPopupPlace = () => {
-  popupPlaceAdd.classList.toggle("popup_opened");
+  popupAddPlace.classList.toggle("popup_opened");
 }
 
 const toggleClosePopupPlace = () => {
-  popupPlaceAdd.classList.toggle("popup_opened");
+  popupAddPlace.classList.toggle("popup_opened");
 }
 
 function toggleOpenPopupProfile(){
@@ -85,20 +84,28 @@ formElementProfile.addEventListener('submit', handleFormSubmit);
 editButton.addEventListener("click", toggleOpenPopupProfile);
 closeButton.addEventListener("click", toggleClosePopupProfile);
 addButton.addEventListener("click", toggleOpenPopupPlace);
-closePlaceAddButton.addEventListener("click", toggleClosePopupPlace);
+buttonClosePopupCard.addEventListener("click", toggleClosePopupPlace);
 
 
 const template = document.querySelector('#card');
 const cardsWrapper = document.querySelector(".elements");
 
+//function CloneTemplateCard () {
+  //const cardElement =  template.cloneNode(true).content;
+  //return cardElement
+//};
+//console.log(CloneTemplateCard())
+
 initialCards.forEach(function (element) {
-  const cardElement =  template.cloneNode(true).content;
+  const cardElement =  template.content.cloneNode(true);
+
 
   const templateImg = cardElement.querySelector('.element__image');
   const templateText = cardElement.querySelector('.element__place');
 
   templateText.textContent = element.name;
   templateImg.src = element.link;
+  templateImg.alt = element.name;
 
   cardElement.querySelector('.element__button-like').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__button-like_active_add');
@@ -111,7 +118,8 @@ initialCards.forEach(function (element) {
   templateImg.addEventListener('click', function () {
     popupImage.src = element.link;
     popupText.textContent = element.name;
-    toggleOpenPopupAddImage();
+    templateImg.alt = element.name;
+    toggleOpenPopupImageAdd();
   });
 
 
@@ -131,15 +139,15 @@ const formElementCardAdd = document.querySelector('.popup__form-second')
 const placeInput = document.querySelector('.popup__text_type_place');
 const linkInput = document.querySelector('.popup__text_type_img');
 
-const popupAddImage = document.querySelector('.popup_theme_pic');
-const popupCloseImg = document.querySelector('.popup__close-third');
+const popupImageAdd = document.querySelector('.popup_theme_pic');
+const popupImgCloseButton = document.querySelector('.popup__close-third');
 const popupText = document.querySelector('.popup__place-text');
 
 
 
 function addElements(evt) {
   evt.preventDefault();
-  const cardElement =  template.cloneNode(true).content;
+  const cardElement =  template.content.cloneNode(true);
 
   const templateImg = cardElement.querySelector('.element__image');
   const templateText = cardElement.querySelector('.element__place');
@@ -159,25 +167,25 @@ function addElements(evt) {
   templateImg.addEventListener('click', function(){
     popupImage.src = `${templateImg.src}`;
     popupText.textContent = templateText.textContent;
-    toggleOpenPopupAddImage();
+    toggleOpenPopupImageAdd();
   });
-  
-
-  evt.target.reset();
 
   toggleClosePopupPlace();
   cardsWrapper.prepend(cardElement);
+
+  evt.target.reset();
 }
 
 formElementCardAdd.addEventListener('submit', addElements);
 
 
-const toggleOpenPopupAddImage = () => {
-  popupAddImage.classList.toggle("popup_opened");
+const toggleOpenPopupImageAdd = () => {
+  popupImageAdd.classList.toggle("popup_opened");
 };
 
-const toggleClosePopupAddImage = () => {
-  popupAddImage.classList.toggle("popup_opened");
+const toggleClosePopupImageAdd = () => {
+  popupImageAdd.classList.toggle("popup_opened");
 }
 
-popupCloseImg.addEventListener('click', toggleClosePopupAddImage);
+popupImgCloseButton.addEventListener('click', toggleClosePopupImageAdd);
+
