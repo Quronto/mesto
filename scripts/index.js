@@ -125,7 +125,7 @@ const popupPic = document.querySelector(".popup__image");
 
 
 function createCard(item) {
-  const newElement = template.content.cloneNode(true);
+  const newElement = template.content.querySelector('.element').cloneNode(true);
   const cardImage = newElement.querySelector('.element__image');
   const cardParagraph = newElement.querySelector('.element__place');
 
