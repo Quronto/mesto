@@ -1,4 +1,4 @@
-.popup__text {
+.form__text {
   margin-bottom: 30px;
   border: none;
   border-bottom: 1px solid #000;
@@ -10,6 +10,6 @@
   line-height: 17px;
 }
 
-.popup__text:last-of-type {
+.form__text:last-of-type {
   margin-bottom: 0;
 }

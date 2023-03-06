@@ -90,9 +90,9 @@ buttonOpenPopupAddPlace.addEventListener('click', toggleOpenPopupAddPlace);
 buttonClosePopupAddPlace.addEventListener('click', toggleCloseButtonAddPlace);
 
 // изменение имени
-const formElementProfile = document.querySelector(".popup__form");
-const nameInput = document.querySelector(".popup__text_type_name");
-const jobInput = document.querySelector(".popup__text_type_job");
+const formElementProfile = document.querySelector(".form");
+const nameInput = document.querySelector(".form__text_type_name");
+const jobInput = document.querySelector(".form__text_type_job");
 const profileName = document.querySelector(".profile__name");
 const profileStatus = document.querySelector(".profile__status");
 
@@ -117,7 +117,7 @@ const handleDelete = (evt) => {
 // создание карточки
 const template = document.querySelector('#card');
 const cardsWrapper = document.querySelector(".elements");
-const formElementCardAdd = document.querySelector('.popup__form-second');
+const formElementCardAdd = document.querySelector('.form-change-name');
 const elements = document.querySelector('.elements');
 
 const popupParagraph = document.querySelector(".popup__place-text");
@@ -156,8 +156,8 @@ initialCards.forEach(function (element) {
 });
 
 
-const placeInput = document.querySelector('.popup__text_type_place');
-const linkInput = document.querySelector('.popup__text_type_img');
+const placeInput = document.querySelector('.form__text_type_place');
+const linkInput = document.querySelector('.form__text_type_img');
 
 // форма и добавление карточки
 formElementCardAdd.addEventListener('submit', (evt) => {
@@ -179,12 +179,12 @@ buttonClosePopupImage.addEventListener('click', toggleCloseButtonImage);
 
 const options = {
   formSelector: '.form',
-  inputSelector: '.popup__text',
+  inputSelector: '.form__text',
   submitSelector: '.popup__save',
   inputSectionSelector: '.form__section',
   inputErrorSelector: '.form__input-error',
   inputErrorClass: 'form__input-error_active',
-  inputErrorLineClass: 'popup__text_active',
+  inputErrorLineClass: 'form__text_active',
   disabledButtonClass: 'form__submit_inactive',
 };
 
