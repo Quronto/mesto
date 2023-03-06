@@ -178,7 +178,7 @@ formElementCardAdd.addEventListener('submit', (evt) => {
 buttonClosePopupImage.addEventListener('click', toggleCloseButtonImage);
 
 const options = {
-  formSelector: '.popup__form',
+  formSelector: '.form',
   inputSelector: '.popup__text',
   submitSelector: '.popup__save',
   inputSectionSelector: '.form__section',
