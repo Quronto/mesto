@@ -16,6 +16,16 @@
   transition: linear  0.1s 0.1s;
 }
 
+.popup__save:disabled {
+  color: #B8B8B8;
+  background: #EDEDED;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 @media screen and (max-width: 550px) {
   .popup__save {
     margin: 45px 0 25px;

@@ -43,11 +43,15 @@ const popups = document.querySelectorAll('.popup');
 //Открытие попапов
 function openPopup(popups) {
   popups.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
+  popups.addEventListener('mousedown', closePopupCurrent);
 };
 
 function closePopup(popups) {
   popups.classList.remove('popup_opened');
-}
+  document.removeEventListener('keydown', closePopupEsc);
+  popups.removeEventListener('mousedown', closePopupCurrent);
+};
 
 //Открытие попапа с изменением профиля
 const toggleOpenPopupProfile = () => {
@@ -85,10 +89,6 @@ buttonOpenPopupProfile.addEventListener('click', toggleOpenPopupProfile);
 buttonOpenPopupAddPlace.addEventListener('click', toggleOpenPopupAddPlace);
 buttonClosePopupAddPlace.addEventListener('click', toggleCloseButtonAddPlace);
 
-//buttonOpenPopupImage.addEventListener('click', toggleOpenPopupImage);
-//buttonClosePopupImage.addEventListener('click', toggleCloseButtonImage);
-
-
 // изменение имени
 const formElementProfile = document.querySelector(".popup__form");
 const nameInput = document.querySelector(".popup__text_type_name");
@@ -97,7 +97,7 @@ const profileName = document.querySelector(".profile__name");
 const profileStatus = document.querySelector(".profile__status");
 
 
-function handleFormSubmit (evt) {
+function handleFormSubmit(evt) {
   evt.preventDefault();
 
   profileName.textContent = `${nameInput.value}`;
@@ -176,3 +176,34 @@ formElementCardAdd.addEventListener('submit', (evt) => {
 });
 
 buttonClosePopupImage.addEventListener('click', toggleCloseButtonImage);
+
+const options = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__text',
+  submitSelector: '.popup__save',
+  inputSectionSelector: '.form__section',
+  inputErrorSelector: '.form__input-error',
+  inputErrorClass: 'form__input-error_active',
+  inputErrorLineClass: 'popup__text_active',
+  disabledButtonClass: 'form__submit_inactive',
+};
+
+enableValidation(options);
+
+
+//закртыие на кнопку 
+const closePopupEsc = (evt) => {
+  if (evt.key === 'Escape') {
+    popups.forEach (function (popup) {
+      closePopup(popup);
+    });
+  }
+};
+//закрытие на оверлей
+const closePopupCurrent = (evt) => {
+  if (evt.target === evt.currentTarget) {
+    popups.forEach (function (popup) {
+      closePopup(popup);
+    });
+  }
+};
