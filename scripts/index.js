@@ -51,7 +51,7 @@ function closePopup(popups) {
 };
 
 //Открытие попапа с изменением профиля
-const OpenPopupProfile = () => {
+const openPopupProfile = () => {
   openPopup(popupProfile);
   nameInput.value = `${profileName.textContent}`;
   jobInput.value = `${profileStatus.textContent}`;
@@ -81,7 +81,7 @@ const closeButtonImage = () => {
 
 //вызов для попапов
 
-buttonOpenPopupProfile.addEventListener('click', OpenPopupProfile);
+buttonOpenPopupProfile.addEventListener('click', openPopupProfile);
 
 buttonOpenPopupAddPlace.addEventListener('click', openPopupAddPlace);
 
@@ -94,7 +94,7 @@ closeButtons.forEach((button) => {
 });
 
 // изменение имени
-const formElementProfile = document.forms["Имя и о себе"];
+const formElementProfile = document.forms["profile-form"];
 const nameInput = document.querySelector(".form__text_type_name");
 const jobInput = document.querySelector(".form__text_type_job");
 const profileName = document.querySelector(".profile__name");
@@ -121,7 +121,7 @@ const handleDelete = (evt) => {
 // создание карточки
 const template = document.querySelector('#card');
 const cardsWrapper = document.querySelector(".elements");
-const formElementCardAdd = document.forms["Добавление места"];
+const formElementCardAdd = document.forms["card-form"];
 const elements = document.querySelector('.elements');
 
 const popupParagraph = document.querySelector(".popup__place-text");
