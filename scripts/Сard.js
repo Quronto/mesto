@@ -1,6 +1,6 @@
 import { closePopup, openPopup, popupImage, popupPic, popupParagraph } from './index.js';
 
-export class Card {
+class Card {
   constructor(data, templateSelector) {
     this._templateSelector = templateSelector;
     this._name = data.name;
@@ -8,13 +8,13 @@ export class Card {
   };
 
   _getTemplate() {
-    const newElement = document
+    const templateElement = document
     .querySelector(this._templateSelector)
     .content
     .querySelector('.element')
     .cloneNode(true);
 
-    return newElement;
+    return templateElement;
   };
 
   _openPopup() {
@@ -48,9 +48,15 @@ export class Card {
     this._element = this._getTemplate();
     this._setEventListeners();
 
-    this._element.querySelector('.element__image').src = this._link;
-    this._element.querySelector('.element__place').textContent = this._name;
+    const image = this._element.querySelector('.element__image');
+    const title = this._element.querySelector('.element__place');
+
+    image.src = this._link;
+    image.alt = this._name;
+    title.textContent = this._name;
 
     return this._element;
     };
 };
+
+export default Card;

@@ -1,5 +1,5 @@
-import { Card } from './Сard.js';
-import { FormValidator } from './FormValidator.js';
+import Card from './Сard.js';
+import FormValidator from './FormValidator.js';
 
 export { closePopup, openPopup, popupImage, popupPic, popupParagraph };
 
@@ -13,6 +13,8 @@ const options = {
   inputErrorLineClass: 'form__text_active',
   disabledButtonClass: 'popup__save_inactive',
 };
+
+
 
 //enableValidation(options);
 
@@ -66,16 +68,16 @@ const initialCards = [
 
 
 //Открытие попапов
-function openPopup(popups) {
-  popups.classList.add('popup_opened');
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
-  popups.addEventListener('mousedown', closePopupCurrent);
+  popup.addEventListener('mousedown', closePopupCurrent);
 };
 
-function closePopup(popups) {
-  popups.classList.remove('popup_opened');
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupEsc);
-  popups.removeEventListener('mousedown', closePopupCurrent);
+  popup.removeEventListener('mousedown', closePopupCurrent);
 };
 
 //Открытие попапа с изменением профиля
@@ -112,8 +114,6 @@ closeButtons.forEach((button) => {
   button.addEventListener('click', () => closePopup(popup));
 });
 
-
-
 //изменение имени
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -125,7 +125,6 @@ function handleProfileFormSubmit(evt) {
 
 formElementProfile.addEventListener('submit', handleProfileFormSubmit);
 
-
 // добавление карточек из массива
 initialCards.forEach((element) => {
   const newElement = new Card(element, '#card');
@@ -133,14 +132,12 @@ initialCards.forEach((element) => {
   elements.prepend(createCard);
 });
 
-
-
-
 // форма и добавление карточки
 formElementCardAdd.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  initialCards.name = placeInput;
-  initialCards.link = linkInput;
+
+  initialCards.name = placeInput.value;
+  initialCards.link = linkInput.value;
 
   const newElement = new Card(initialCards, '#card');
   const createCard = newElement.generateCard();
@@ -165,3 +162,8 @@ const closePopupCurrent = (evt) => {
   }
 };
 
+const profileFormValidation = new FormValidator(options, formElementProfile);
+profileFormValidation.enableValidation();
+
+const addCardValidation = new FormValidator(options, formElementCardAdd);
+addCardValidation.enableValidation();
