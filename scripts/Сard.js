@@ -1,4 +1,4 @@
-import { closePopup, openPopup, popupImage, popupPic, popupParagraph } from './index.js';
+import { openPopup, popupImage, popupPic, popupParagraph } from './index.js';
 
 class Card {
   constructor(data, templateSelector) {
@@ -9,10 +9,10 @@ class Card {
 
   _getTemplate() {
     const templateElement = document
-    .querySelector(this._templateSelector)
-    .content
-    .querySelector('.element')
-    .cloneNode(true);
+      .querySelector(this._templateSelector)
+      .content
+      .querySelector('.element')
+      .cloneNode(true);
 
     return templateElement;
   };
@@ -24,39 +24,35 @@ class Card {
     popupParagraph.textContent = this._name;
   }
 
-  _closePopup() {
-    closePopup(popupImage)
-  }
-
   _deleteCard() {
     this._element.remove();
   }
-  
+
   _setEventListeners() {
     this._element.querySelector('.element__image').addEventListener('click', () => {
       this._openPopup();
-  })
-  this._element.querySelector('.element__del-button').addEventListener('click', () => {
+    });
+    this._element.querySelector('.element__del-button').addEventListener('click', () => {
       this._deleteCard();
-  })
-  this._element.querySelector('.element__button-like').addEventListener('click', (evt) => {
-    evt.target.classList.toggle('element__button-like_active_add');
-  })
-  }
+    });
+    this._element.querySelector('.element__button-like').addEventListener('click', (evt) => {
+      evt.target.classList.toggle('element__button-like_active_add');
+    });
+  };
 
   generateCard() {
     this._element = this._getTemplate();
     this._setEventListeners();
 
-    const image = this._element.querySelector('.element__image');
-    const title = this._element.querySelector('.element__place');
+    this._image = this._element.querySelector('.element__image');
+    this._title = this._element.querySelector('.element__place');
 
-    image.src = this._link;
-    image.alt = this._name;
-    title.textContent = this._name;
+    this._image.src = this._link;
+    this._image.alt = this._name;
+    this._title.textContent = this._name;
 
     return this._element;
-    };
+  };
 };
 
 export default Card;

@@ -96,6 +96,7 @@ const closeButtonAddPlace = () => {
   closePopup(popupAddPlace);
 };
 
+
 //вызов для попапов
 
 buttonOpenPopupProfile.addEventListener('click', openPopupProfile);
@@ -121,10 +122,15 @@ function handleProfileFormSubmit(evt) {
 
 formElementProfile.addEventListener('submit', handleProfileFormSubmit);
 
+const generateNewCard = (element) => {
+  const newElement = new Card(element, '#card');
+  const createCard = newElement.generateCard(); 
+  return createCard;
+};
+
 // добавление карточек из массива
 initialCards.forEach((element) => {
-  const newElement = new Card(element, '#card');
-  const createCard = newElement.generateCard();
+  const createCard = generateNewCard(element);
   elements.prepend(createCard);
 });
 
@@ -135,9 +141,7 @@ formElementCardAdd.addEventListener('submit', (evt) => {
   initialCards.name = placeInput.value;
   initialCards.link = linkInput.value;
 
-  const newElement = new Card(initialCards, '#card');
-  const createCard = newElement.generateCard();
-
+  const createCard = generateNewCard(initialCards);
   elements.prepend(createCard);
 
   closeButtonAddPlace();
