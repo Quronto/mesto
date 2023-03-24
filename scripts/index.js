@@ -14,10 +14,6 @@ const options = {
   disabledButtonClass: 'popup__save_inactive',
 };
 
-
-
-//enableValidation(options);
-
 const popupImage = document.querySelector('.popup_theme_pic');
 const popupPic = popupImage.querySelector('.popup__image');
 const popupParagraph = popupImage.querySelector('.popup__place-text');
@@ -162,6 +158,7 @@ const closePopupCurrent = (evt) => {
   }
 };
 
+// валидация
 const profileFormValidation = new FormValidator(options, formElementProfile);
 profileFormValidation.enableValidation();
 
