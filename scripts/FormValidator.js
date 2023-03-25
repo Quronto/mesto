@@ -4,7 +4,7 @@ class FormValidator {
     this._form = form;
     this._submitButton = this._form.querySelector(this._options.submitSelector);
     this._inputs = Array.from(this._form.querySelectorAll(this._options.inputSelector));
-  }
+  };
 
   _hiddenError = (errorElement) => {
     errorElement.innerText = '';
@@ -66,7 +66,7 @@ class FormValidator {
   };
   
   enableValidation = () => {
-   this._setEventListeners(this._form);
+   this._setEventListeners();
   };
 };
 

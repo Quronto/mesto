@@ -22,11 +22,11 @@ class Card {
     popupPic.src = this._link;
     popupPic.alt = this._name;
     popupParagraph.textContent = this._name;
-  }
+  };
 
   _deleteCard() {
     this._element.remove();
-  }
+  };
 
   _setEventListeners() {
     this._element.querySelector('.element__image').addEventListener('click', () => {
