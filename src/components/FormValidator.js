@@ -68,7 +68,7 @@ class FormValidator {
   };
 
   resetValidation() {
-
+    this._form.resetForm()
   };
 };
 

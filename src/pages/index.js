@@ -44,6 +44,7 @@ function changeProfile() {
   const popupUserInfo = userInfo.getUserInfo();
   nameInput.setAttribute('value', popupUserInfo.userName);
   jobInput.setAttribute('value', popupUserInfo.userJob);
+  //cardFormElement.resetValidation()
 }
 
 
