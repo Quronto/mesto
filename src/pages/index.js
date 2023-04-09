@@ -9,20 +9,16 @@ import UserInfo from '../components/UserInfo.js';
 import { 
   options,
   initialCards,
-  cardFormElement, 
-  profileForm,
-  addButton,
-  editButton,
-  nameInput,
-  jobInput 
 } from '../utils/constants.js';
 
+const cardFormElement = document.querySelector('.popup__form_type_card');
+const profileForm = document.querySelector('.popup__form');
 
+const addButton = document.querySelector('.profile__add-btn');
+const editButton = document.querySelector(".profile__edit-btn");
 
-
-
-
-
+const nameInput = document.querySelector('.popup__input_type_name');
+const jobInput = document.querySelector('.popup__input_type_job');
 
 const userInfo = new UserInfo({
   userNameSelector: '.profile__text',
@@ -41,14 +37,14 @@ const editProfilePopup = new PopupWithForm('.popup_theme_edit', {
 
 editProfilePopup.setEventListeners();
 
-editButton.addEventListener('click', function () {
+editButton.addEventListener('click', changeProfile);
+
+function changeProfile() {
   editProfilePopup.open()
   const popupUserInfo = userInfo.getUserInfo();
   nameInput.setAttribute('value', popupUserInfo.userName);
   jobInput.setAttribute('value', popupUserInfo.userJob);
-});
-
-
+}
 
 
 const addCardPopup = new PopupWithForm('.popup_theme_addbutton', {
@@ -64,9 +60,12 @@ const addCardPopup = new PopupWithForm('.popup_theme_addbutton', {
 addCardPopup.setEventListeners();
 
 
-addButton.addEventListener('click', function () {
+addButton.addEventListener('click',OpenAddCardPopup);
+
+function OpenAddCardPopup() {
   addCardPopup.open()
-});
+  //cardFormElement.resetValidation()
+};
 
 
 const imagePopup = new ImagePopup('.popup_theme_picture');

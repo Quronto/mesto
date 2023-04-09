@@ -22,9 +22,7 @@ class FormValidator {
     });
 
     this._form.addEventListener('reset', () => {
-      setTimeout(() => {
         this._toggleButton();
-      }), '0'
     });
 
     this._setInputListeners();
@@ -67,7 +65,11 @@ class FormValidator {
         this._isValid(evt);
       });
     })
-  }
+  };
+
+  resetValidation() {
+
+  };
 };
 
 export default FormValidator;

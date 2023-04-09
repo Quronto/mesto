@@ -15,4 +15,4 @@ class ImagePopup extends Popup {
   };
 };
 
-export default Popup;
+export default ImagePopup;

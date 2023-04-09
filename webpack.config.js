@@ -14,7 +14,7 @@ module.exports = {
   devServer: {
     static: path.resolve(__dirname, './dist'),
     compress: true,
-    port: 1555,
+    port: 1553,
     open: true
   },
   module: {
@@ -25,9 +25,19 @@ module.exports = {
         exclude: '/node_modules/'
       },
       {
-        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
-        type: 'asset/resource'
-      },
+        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        type: 'asset/resource',
+        generator: {
+            filename: 'images/[name].[hash][ext]',
+        }
+    },
+    {
+      test: /\.(woff|woff2|eot|ttf|otf)$/i,
+      type: 'asset/resource',
+      generator: {
+        filename: 'fonts/[name].[hash][ext]',
+      }
+    }, 
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, {
