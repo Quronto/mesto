@@ -34,7 +34,7 @@ generateCard() {
   this._setEventListeners();
 
   this._cardImage.src = this._link;
-  this._cardImage.alt = this._link;
+  this._cardImage.alt = this._name;
   this._element.querySelector('.card__paragraph').textContent = this._name;
 
   return this._element;
