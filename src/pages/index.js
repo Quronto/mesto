@@ -4,6 +4,7 @@ import FormValidator from '../components/FormValidator.js';
 import Card from '../components/Card.js';
 import ImagePopup from '../components/ImagePopup.js';
 import PopupWithForm from '../components/PopupWithForm.js';
+import PopupWithConfirm from '../components/PopupWithConfirm.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
 import { 
@@ -61,7 +62,7 @@ const addCardPopup = new PopupWithForm('.popup_theme_addbutton', {
 addCardPopup.setEventListeners();
 
 
-addButton.addEventListener('click',OpenAddCardPopup);
+addButton.addEventListener('click', OpenAddCardPopup);
 
 function OpenAddCardPopup() {
    addCardPopup.open()
@@ -92,6 +93,13 @@ const renderInitialCards = new Section({
   }
 }, '.cards');
 renderInitialCards.renderItems();
+
+
+// const popupDelCard = document.querySelector('.popup_theme_delete')
+// const popupConfirm = new PopupWithConfirm(popupDelCard);
+
+// //popup подтверждения удаления карточки
+// popupConfirm.setEventListeners();
 
 
 const addCardFormValidation = new FormValidator(options, cardFormElement);

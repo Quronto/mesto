@@ -26,6 +26,7 @@ class Card {
 
   _deleteCard(evt) {
     evt.target.closest('.card').remove();
+    this._element = null;
   };
 
 generateCard() {
