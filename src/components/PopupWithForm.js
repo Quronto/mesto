@@ -1,11 +1,20 @@
 import Popup from "./Popup.js";
 
 class PopupWithForm extends Popup {
-  constructor(popupSelector, {handleFormSubmit}) {
+  constructor(popupSelector, { handleFormSubmit }) {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
     this._popupForm = this._popup.querySelector('.popup__form');
     this._inputList = this._popupForm.querySelectorAll('.popup__input');
+    this._popupSubmit = this._popup.querySelector('.popup__submit');
+  };
+
+  setEventListeners() {
+    super.setEventListeners()
+    this._popupForm.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      this._handleFormSubmit(this._getInputValues());
+    })
   };
 
   _getInputValues() {
@@ -15,13 +24,20 @@ class PopupWithForm extends Popup {
     return this._formValues;
   };
 
+  textSavingLoadingData() {
+    this._popupSubmit.textContent = 'Сохранение...';
+  };
+  
+  textSaving() {
+    this._popupSubmit.textContent = 'Сохранить';
+  };
 
-  setEventListeners() {
-    super.setEventListeners()
-    this._popupForm.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-      this._handleFormSubmit(this._getInputValues());
-    })
+  textCreateLoadingData() {
+    this._popupSubmit.textContent = 'Создание...';
+  };
+
+  textCreate() {
+    this._popupSubmit.textContent = 'Создать';
   };
 
   close() {

@@ -14,7 +14,7 @@ module.exports = {
   devServer: {
     static: path.resolve(__dirname, './dist'),
     compress: true,
-    port: 1553,
+    port: 8080,
     open: true
   },
   module: {
@@ -25,19 +25,9 @@ module.exports = {
         exclude: '/node_modules/'
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/,
-        type: 'asset/resource',
-        generator: {
-            filename: 'images/[name].[hash][ext]',
-        }
-    },
-    {
-      test: /\.(woff|woff2|eot|ttf|otf)$/i,
-      type: 'asset/resource',
-      generator: {
-        filename: 'fonts/[name].[hash][ext]',
-      }
-    }, 
+        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+        type: 'asset/resource'
+      },
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, {
@@ -57,5 +47,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
-  ]
+  ],
+  devtool: 'source-map'
 };
+

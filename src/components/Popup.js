@@ -27,6 +27,6 @@ class Popup {
       }
     })
   }
-};
+}; //qwe
 
 export default Popup;
