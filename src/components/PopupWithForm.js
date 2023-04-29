@@ -24,7 +24,7 @@ class PopupWithForm extends Popup {
     return this._formValues;
   };
 
-  textSavingLoadingData() {
+  textSavingLoad() {
     this._popupSubmit.textContent = 'Сохранение...';
   };
   
@@ -32,7 +32,7 @@ class PopupWithForm extends Popup {
     this._popupSubmit.textContent = 'Сохранить';
   };
 
-  textCreateLoadingData() {
+  textCreateLoad() {
     this._popupSubmit.textContent = 'Создание...';
   };
 

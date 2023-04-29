@@ -21,7 +21,7 @@ const editButton = document.querySelector('.profile__edit-btn');
 const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_job');
 const avatarFormElement = document.querySelector('.popup__form_type_avatar');
-const profilePencil = document.querySelector('.profile__pencil');
+const profilePen = document.querySelector('.profile__pencil');
 
 const api = new Api(apiRequest);
 
@@ -36,14 +36,14 @@ const userInfo = new UserInfo({
 
 const editProfilePopup = new PopupWithForm('.popup_theme_edit', {
   handleFormSubmit: (profileData) => {
-    editProfilePopup.textSavingLoadingData();
+    editProfilePopup.textSavingLoad();
     api.sendUserData(profileData)
       .then((res) => {
         userInfo.setUserInfo({ userName: res.name, userJob: res.about });
         editProfilePopup.close();
       })
       .catch((err) => {
-        alert(`При редактировании профиля произошла ошибка ${err}`);
+        alert(`Ошибка при редактировании профиля ${err}`);
       })
       .finally(() => {
         editProfilePopup.textSaving();
@@ -73,7 +73,7 @@ Promise.all([api.getUserData(), api.getInitialCards()])
 
 const addCardPopup = new PopupWithForm('.popup_theme_addbutton', {
   handleFormSubmit: (addCardInput) => {
-    addCardPopup.textCreateLoadingData();
+    addCardPopup.textCreateLoad();
     api.addNewCard({
       name: addCardInput.title,
       link: addCardInput.link
@@ -83,7 +83,7 @@ const addCardPopup = new PopupWithForm('.popup_theme_addbutton', {
         addCardPopup.close();
       })
       .catch((err) => {
-        alert(`При добавлении карточки произошла ошибка ${err}`)
+        alert(`ошибка при добавлении карточки ${err}`)
       })
       .finally(() => {
         addCardPopup.textCreate();
@@ -101,14 +101,14 @@ addButton.addEventListener('click', function () {
 
 const popupChangeProfile = new PopupWithForm('.popup_theme_avatar', {
   handleFormSubmit: (avatarLink) => {
-    popupChangeProfile.textSavingLoadingData();
+    popupChangeProfile.textSavingLoad();
     api.sendAvatarData(avatarLink)
       .then((res) => {
         userInfo.setUserAvatar(res.avatar);
         popupChangeProfile.close();
       })
       .catch((err) => {
-        alert(`При обновлении аватарки произошла ошибка ${err}`);
+        alert(`ошибка при обновлении аватарки ${err}`);
       })
       .finally(() => {
         popupChangeProfile.textSaving();
@@ -117,7 +117,7 @@ const popupChangeProfile = new PopupWithForm('.popup_theme_avatar', {
 })
 popupChangeProfile.setEventListeners();
 
-profilePencil.addEventListener('click', function () {
+profilePen.addEventListener('click', function () {
   popupChangeProfile.open()
 })
 
@@ -131,7 +131,7 @@ const popupWithConfirmaDelete = new PopupWithConfirm('.popup_theme_delete', {
         popupWithConfirmaDelete.close();
       })
       .catch((err) => {
-        alert(`При удалении карточки произошла ошибка ${err}`)
+        alert(`ошибка при удалении карточки ${err}`)
       })
   }
 });

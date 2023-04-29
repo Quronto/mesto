@@ -16,4 +16,5 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: 26px;
+  transition: all .3s ease-out;
 }
