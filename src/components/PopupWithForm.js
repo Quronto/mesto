@@ -7,6 +7,7 @@ class PopupWithForm extends Popup {
     this._popupForm = this._popup.querySelector('.popup__form');
     this._inputList = this._popupForm.querySelectorAll('.popup__input');
     this._popupSubmit = this._popup.querySelector('.popup__submit');
+    this._initialButtonText = this._popupSubmit.textContent;
   };
 
   setEventListeners() {
@@ -24,21 +25,21 @@ class PopupWithForm extends Popup {
     return this._formValues;
   };
 
-  textSavingLoad() {
-    this._popupSubmit.textContent = 'Сохранение...';
-  };
-  
-  textSaving() {
-    this._popupSubmit.textContent = 'Сохранить';
-  };
+  renderLoading(isLoading) {
+    if (isLoading) {
+      this._popupSubmit.textContent = 'Сохранение...';
+    } else {
+      this._popupSubmit.textContent = this._initialButtonText;
+    }
+  }
 
-  textCreateLoad() {
-    this._popupSubmit.textContent = 'Создание...';
-  };
-
-  textCreate() {
-    this._popupSubmit.textContent = 'Создать';
-  };
+  // доработать
+  //  setInputValues(data) {
+  //    this._inputList.forEach((input) => {
+  //     input.value = data[input.userName];
+  //     input.value = data[input.userJob];
+  //     });
+  //   }
 
   close() {
     super.close();

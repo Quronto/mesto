@@ -36,7 +36,7 @@ const userInfo = new UserInfo({
 
 const editProfilePopup = new PopupWithForm('.popup_theme_edit', {
   handleFormSubmit: (profileData) => {
-    editProfilePopup.textSavingLoad();
+    editProfilePopup.renderLoading(true);
     api.sendUserData(profileData)
       .then((res) => {
         userInfo.setUserInfo({ userName: res.name, userJob: res.about });
@@ -46,7 +46,7 @@ const editProfilePopup = new PopupWithForm('.popup_theme_edit', {
         alert(`Ошибка при редактировании профиля ${err}`);
       })
       .finally(() => {
-        editProfilePopup.textSaving();
+        editProfilePopup.renderLoading(false);
       })
   }
 });
@@ -56,8 +56,9 @@ editProfilePopup.setEventListeners();
 editButton.addEventListener('click', function () {
   editProfilePopup.open();
   const popupUserInfo = userInfo.getUserInfo();
-  nameInput.value = popupUserInfo.userName;
+  nameInput.value = popupUserInfo.userName; 
   jobInput.value = popupUserInfo.userJob;
+  // editProfilePopup.setInputValues(popupUserInfo);
   profileFormValidation.clearFormErrors()
 })
 
@@ -73,7 +74,7 @@ Promise.all([api.getUserData(), api.getInitialCards()])
 
 const addCardPopup = new PopupWithForm('.popup_theme_addbutton', {
   handleFormSubmit: (addCardInput) => {
-    addCardPopup.textCreateLoad();
+    addCardPopup.renderLoading(true);
     api.addNewCard({
       name: addCardInput.title,
       link: addCardInput.link
@@ -86,7 +87,7 @@ const addCardPopup = new PopupWithForm('.popup_theme_addbutton', {
         alert(`ошибка при добавлении карточки ${err}`)
       })
       .finally(() => {
-        addCardPopup.textCreate();
+        addCardPopup.renderLoading(false);
       })
   }
 });
@@ -101,7 +102,7 @@ addButton.addEventListener('click', function () {
 
 const popupChangeProfile = new PopupWithForm('.popup_theme_avatar', {
   handleFormSubmit: (avatarLink) => {
-    popupChangeProfile.textSavingLoad();
+    popupChangeProfile.renderLoading(true);
     api.sendAvatarData(avatarLink)
       .then((res) => {
         userInfo.setUserAvatar(res.avatar);
@@ -111,14 +112,15 @@ const popupChangeProfile = new PopupWithForm('.popup_theme_avatar', {
         alert(`ошибка при обновлении аватарки ${err}`);
       })
       .finally(() => {
-        popupChangeProfile.textSaving();
+        popupChangeProfile.renderLoading(false);
       })
   }
 })
 popupChangeProfile.setEventListeners();
 
 profilePen.addEventListener('click', function () {
-  popupChangeProfile.open()
+  popupChangeProfile.open();
+  popupChangeProfileFormValidation.clearFormErrors();
 })
 
 
